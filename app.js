@@ -5,18 +5,25 @@ const telHref = t => "tel:+33" + t.replace(/\D/g, "").replace(/^0/, "");
 const load = f => fetch("content/" + f + ".json", { cache: "no-cache" }).then(r => r.json());
 
 function md(src) {
-  const inline = s => esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\[(.+?)\]\(((?:https?:\/\/|[\w-]+\.html)[^)\s]*)\)/g, '<a href="$2">$1</a>');
-  let html = "", list = null;
+  const inline = s => esc(s)
+    .replace(/!\[([^\]]*)\]\(((?:https:\/\/|\/?img\/)[^)\s]+)\)/g, '<img class="md-img" src="$2" alt="$1" loading="lazy">')
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/\[(.+?)\]\(((?:https?:\/\/|[\w-]+\.html)[^)\s]*)\)/g, '<a href="$2">$1</a>');
+  let html = "", list = null, quote = null;
   const close = () => { if (list) { html += `</${list}>`; list = null; } };
+  const closeQ = () => { if (quote) { html += `<aside class="callout">${quote.map(l => `<p>${inline(l)}</p>`).join("")}</aside>`; quote = null; } };
   for (const line of String(src || "").split("\n")) {
     let m;
-    if ((m = line.match(/^(#{2,3})\s+(.*)/))) { close(); html += `<h${m[1].length}>${inline(m[2])}</h${m[1].length}>`; }
+    if ((m = line.match(/^>\s?(.*)/))) { close(); (quote = quote || []).push(m[1]); continue; }
+    closeQ();
+    if ((m = line.trim().match(/^(https:\/\/(?:www\.)?(?:youtube\.com|youtu\.be)\/\S+)$/))) { close(); html += videoEmbed(m[1]); }
+    else if ((m = line.match(/^(#{2,3})\s+(.*)/))) { close(); html += `<h${m[1].length}>${inline(m[2])}</h${m[1].length}>`; }
     else if ((m = line.match(/^\s*[-*]\s+(.*)/))) { if (list !== "ul") { close(); html += "<ul>"; list = "ul"; } html += `<li>${inline(m[1])}</li>`; }
     else if ((m = line.match(/^\s*\d+\.\s+(.*)/))) { if (list !== "ol") { close(); html += "<ol>"; list = "ol"; } html += `<li>${inline(m[1])}</li>`; }
     else if (line.trim()) { close(); html += `<p>${inline(line)}</p>`; }
     else close();
   }
-  close();
+  close(); closeQ();
   return html;
 }
 
@@ -34,18 +41,36 @@ function openNow(site) {
   return ranges.some(r => { const [a, b, c, d] = r.match(/\d+/g).map(Number); return mins >= a * 60 + b && mins < c * 60 + d; });
 }
 
+const ICONS = {
+  rdv: ["c-blue", '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'],
+  equipe: ["c-indigo", '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17.5" cy="9" r="2.5"/><path d="M16 14.5a5 5 0 0 1 5.5 5"/>'],
+  conseils: ["c-teal", '<path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5M9 8h6M9 12h5"/>'],
+  suivi: ["c-green", '<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>'],
+  operation: ["c-amber", '<path d="M12 3c3 4 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-7 6-11z"/>'],
+  orientation: ["c-rose", '<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>'],
+  faq: ["c-violet", '<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5V14M12 17.5v.5"/>'],
+  acces: ["c-slate", '<path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>'],
+  actualites: ["c-blue", '<path d="M4 5h13v14H6a2 2 0 0 1-2-2z"/><path d="M17 8h3v9a2 2 0 0 1-2 2M8 9h5M8 13h5"/>'],
+  contact: ["c-blue", '<path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/>'],
+  urgence: ["c-red", '<path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.5"/>']
+};
 function chrome(site, page, opts = {}) {
+  if (ICONS[page]) {
+    document.body.classList.add(ICONS[page][0]);
+    const k = document.querySelector("main .kicker");
+    if (k) k.insertAdjacentHTML("beforebegin", `<span class="page-ico"><svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[page][1]}</svg></span>`);
+  }
   const links = [["rdv.html", "Rendez-vous", "rdv"], ["equipe.html", "L'équipe", "equipe"], ["conseils.html", "Conseils", "conseils"], ["suivi.html", "Mon suivi", "suivi"], ["orientation.html", "M'orienter", "orientation"], ["faq.html", "FAQ", "faq"], ["acces.html", "Accès", "acces"]];
   const nav = links.map(([h, t, k]) => `<a href="${h}" class="${k === page ? "on" : ""}">${t}</a>`).join("") + `<a href="urgence.html" class="urg">Urgence</a>`;
   document.body.insertAdjacentHTML("afterbegin",
     (site.bandeau_actif && site.bandeau_texte ? `<div class="bandeau">${esc(site.bandeau_texte)}</div>` : "") +
     `<header class="site"><div class="wrap">
-      <a class="logo" href="index.html"><svg viewBox="0 0 40 16" aria-hidden="true"><path d="M1 13 C6 12 8 6 13 7 S20 2 24 3 S31 10 39 8"/></svg><span class="logo-txt"><b>Mes yeux <i>ligne bleue</i></b><span>Dr Laurent Subiger · Ophtalmologie · Belfort</span></span></a>
+      <a class="logo" href="index.html"><svg viewBox="0 0 40 16" aria-hidden="true"><path d="M1 13 C6 12 8 6 13 7 S20 2 24 3 S31 10 39 8"/></svg><span class="logo-txt"><b>Dr Laurent Subiger</b><span>Ophtalmologue · Belfort</span></span></a>
       ${opts.noFooter ? `<a href="urgence.html" class="urg-head">Urgence</a>` : `<nav class="main" id="nav">${nav}</nav>`}
       <button class="confort-btn" id="confort" aria-pressed="false" title="Agrandir le texte et augmenter le contraste">Aa <span>Confort de lecture</span></button>
       ${opts.noFooter ? "" : `<button class="menu-btn" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>`}
     </div></header>`);
-  const TITLES = { rdv: "Horaires & rendez-vous", equipe: "L'équipe", conseils: "Conseils santé", suivi: "Mon suivi", operation: "Après mon opération", orientation: "M'orienter", faq: "Questions fréquentes", acces: "Venir au cabinet", actualites: "Actualités", urgence: "Urgence" };
+  const TITLES = { rdv: "Horaires & rendez-vous", equipe: "L'équipe", conseils: "Conseils santé", suivi: "Mon suivi", operation: "Après mon opération", orientation: "M'orienter", faq: "Questions fréquentes", acces: "Venir au cabinet", actualites: "Actualités", urgence: "Urgence", contact: "Être rappelé" };
   if (!opts.noFooter) {
     $("header.site").insertAdjacentHTML("afterend", `<div class="backbar"><div class="wrap"><a href="index.html" id="back"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Retour</a><span class="crumb"><a href="index.html">Accueil</a>${TITLES[page] ? ` › ${TITLES[page]}` : ""}</span></div></div>`);
     $("#back").onclick = e => {
@@ -62,7 +87,7 @@ function chrome(site, page, opts = {}) {
   if (!opts.noFooter) document.body.insertAdjacentHTML("beforeend",
     `<footer class="site"><div class="wrap"><div class="grid">
       <div><div class="line"></div><h4>${esc(site.nom_cabinet)}</h4><p>${esc(site.adresse)}<br>${esc(site.ville)}<br>Tél. <a href="${telHref(site.telephone)}">${esc(site.telephone)}</a></p></div>
-      <div><h4>Pages</h4><p><a href="rdv.html">Horaires &amp; rendez-vous</a><br><a href="equipe.html">L'équipe</a><br><a href="conseils.html">Conseils santé</a><br><a href="suivi.html">Mon suivi</a><br><a href="operation.html">Après mon opération</a><br><a href="orientation.html">M'orienter</a><br><a href="faq.html">Questions fréquentes</a><br><a href="acces.html">Accès</a><br><a href="actualites.html">Actualités</a><br><a href="urgence.html">Urgence</a></p></div>
+      <div><h4>Pages</h4><p><a href="rdv.html">Horaires &amp; rendez-vous</a><br><a href="contact.html">Être rappelé</a><br><a href="equipe.html">L'équipe</a><br><a href="conseils.html">Conseils santé</a><br><a href="suivi.html">Mon suivi</a><br><a href="operation.html">Après mon opération</a><br><a href="orientation.html">M'orienter</a><br><a href="faq.html">Questions fréquentes</a><br><a href="acces.html">Accès</a><br><a href="actualites.html">Actualités</a><br><a href="urgence.html">Urgence</a></p></div>
       <div><h4>Urgence vitale</h4><p>Appelez le <a href="tel:15">15</a> ou le <a href="tel:112">112</a></p></div>
     </div><div class="small"><span>© ${new Date().getFullYear()} Cabinet du Dr Laurent Subiger</span><a href="mentions.html">Mentions légales</a></div></div></footer>`);
 }
@@ -99,7 +124,7 @@ async function init(page, opts) {
 async function renderNews(el, max) {
   const { items } = await load("actualites");
   const list = items.slice().sort((a, b) => b.date.localeCompare(a.date)).slice(0, max || 99);
-  el.innerHTML = list.length ? list.map(n => `<article><time>${new Date(n.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}</time><h3>${esc(n.titre)}</h3><div>${md(n.texte)}</div></article>`).join("") : `<p class="muted">Aucune actualité pour le moment.</p>`;
+  el.innerHTML = list.length ? list.map(n => `<article><time>${new Date(n.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}</time>${n.image ? `<img class="news-img" src="${esc(n.image)}" alt="" loading="lazy">` : ""}<h3>${esc(n.titre)}</h3><div>${md(n.texte)}</div></article>`).join("") : `<p class="muted">Aucune actualité pour le moment.</p>`;
 }
 
 // --- Conseils santé
@@ -118,7 +143,7 @@ async function renderFiches() {
     const f = items.find(x => x.slug === location.hash.slice(1));
     $("#vue-liste").hidden = !!f; detail.hidden = !f;
     if (f) {
-      detail.innerHTML = `<p><a href="#">← Toutes les fiches</a></p><div class="kicker">${esc(f.theme)}</div><h1>${esc(f.titre)}${badge(f)}</h1><p class="lead muted" style="font-size:1.15rem">${esc(f.resume)}</p>${videoEmbed(f.video)}<div class="prose">${md(f.contenu)}</div><p class="disclaimer">Ces informations sont générales et ne remplacent pas une consultation. En cas de doute, appelez le cabinet.</p>`;
+      detail.innerHTML = `<p><a href="#">← Toutes les fiches</a></p><div class="kicker">${esc(f.theme)}</div><h1>${esc(f.titre)}${badge(f)}</h1><p class="lead muted" style="font-size:1.15rem">${esc(f.resume)}</p>${f.image ? `<img class="fiche-img" src="${esc(f.image)}" alt="">` : ""}${videoEmbed(f.video)}<div class="prose">${md(f.contenu)}</div><p class="disclaimer">Ces informations sont générales et ne remplacent pas une consultation. En cas de doute, appelez le cabinet.</p>`;
       scrollTo(0, 0);
     }
   };
@@ -286,4 +311,36 @@ async function lastNews() {
   const n = items.slice().sort((a, b) => b.date.localeCompare(a.date))[0];
   if (n) el.innerHTML = `<span class="muted">Actualité · ${new Date(n.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long" })}</span> ${esc(n.titre)} →`;
   else el.remove();
+}
+
+// --- Avis Google (invitation ouverte à tous les patients)
+const AVIS_URL = "https://search.google.com/local/writereview?placeid=ChIJJb2b8Zw8kkcRvqwcsxGG7mQ";
+function avisBlock(el) {
+  if (!el) return;
+  el.innerHTML = `<div class="avis"><div class="avis-stars" aria-hidden="true">★★★★★</div><div class="avis-txt"><b>Votre avis compte</b><span>Vous êtes venu au cabinet ? Quelques mots sur Google aident d'autres patients à nous trouver et nous aident à progresser.</span></div><a class="btn btn-primary" href="${AVIS_URL}" target="_blank" rel="noopener">Donner mon avis</a></div>`;
+}
+
+// --- Formulaire « Être rappelé » (Web3Forms → boîte mail du cabinet)
+const WEB3FORMS_KEY = "aa73c454-6983-40ce-a9be-d6d5c6607a0f";
+function contactForm(site) {
+  const f = $("#rappel"); if (!f) return;
+  const out = $("#rappel-out"), msg = f.querySelector("[name=message]"), cnt = $("#cnt");
+  if (msg && cnt) msg.addEventListener("input", () => cnt.textContent = `${msg.value.length}/300`);
+  f.addEventListener("submit", async e => {
+    e.preventDefault();
+    const d = Object.fromEntries(new FormData(f));
+    if (d.botcheck) return;
+    const btn = f.querySelector("button[type=submit]"); btn.disabled = true; btn.textContent = "Envoi…";
+    try {
+      const r = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ access_key: WEB3FORMS_KEY, subject: `Site : demande de ${d.motif} — ${d.nom}`, from_name: "Site mesyeuxlignebleue.fr", ...d }) });
+      const j = await r.json();
+      if (!j.success) throw new Error(j.message);
+      f.hidden = true;
+      out.innerHTML = `<div class="res conseil"><h3>Merci, votre demande est bien envoyée</h3><p>Nathalie vous rappellera au ${esc(d.telephone)} dès que possible, aux heures d'ouverture du cabinet.</p></div>`;
+    } catch (err) {
+      btn.disabled = false; btn.textContent = "Envoyer ma demande";
+      out.innerHTML = `<div class="res urgent"><h3>L'envoi n'a pas fonctionné</h3><p>Merci d'appeler directement le cabinet au <a href="${telHref(site.telephone)}">${esc(site.telephone)}</a>.</p></div>`;
+    }
+  });
 }

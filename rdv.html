@@ -5,7 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Horaires et rendez-vous · Dr Laurent Subiger, ophtalmologue à Belfort</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="description" content="Horaires d'ouverture et prise de rendez-vous par téléphone au cabinet du Dr Subiger, ophtalmologue à Belfort.">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,15 +24,17 @@
     <div>
       <h2>Prendre rendez-vous</h2>
       <p data-site="rdv_texte"></p>
-      <p><a class="tel-big" data-tel></a></p>
+      <p class="cta" style="align-items:center"><a class="tel-big" data-tel></a> <a class="btn btn-soft" href="contact.html">ou être rappelé</a></p>
       <h3 style="margin-top:1.6rem">À apporter le jour de la consultation</h3>
       <ul class="check" data-list="rdv_a_apporter"></ul>
       <div class="note" data-site="rdv_dilatation"></div>
+      <div class="callout" style="margin-top:1rem"><p><strong>Prévoyez de la marge dans votre journée.</strong> Chaque patient est différent et chaque examen prend le temps qu'il faut : examens complémentaires, dilatation, explications. L'attente peut donc parfois être plus longue que prévu. Merci de votre compréhension.</p></div>
     </div>
   </div>
 </div></section>
+<section style="padding-top:0"><div class="wrap" id="avis"></div></section>
 </main>
 <script src="app.js"></script>
-<script>init("rdv");</script>
+<script>init("rdv").then(() => avisBlock(document.getElementById("avis")));</script>
 </body>
 </html>

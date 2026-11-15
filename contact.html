@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Être rappelé ou laisser un message · Dr Laurent Subiger, ophtalmologue à Belfort</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="description" content="Demandez à être rappelé par le secrétariat du Dr Subiger pour prendre rendez-vous, ou laissez un message court.">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main><section><div class="wrap two">
+  <div>
+    <div class="kicker">Être rappelé</div>
+    <h1>On vous rappelle</h1>
+    <p class="muted" style="font-size:1.1rem">Laissez vos coordonnées : Nathalie vous rappelle aux heures d'ouverture pour fixer un rendez-vous ou répondre à une question pratique.</p>
+    <div class="note"><strong>Pas d'informations médicales ici.</strong> Ce formulaire est envoyé par e-mail : n'y décrivez pas vos symptômes ni vos traitements. Vous en parlerez de vive voix.</div>
+    <div class="alert" style="margin-top:1.4rem;padding:20px"><strong style="color:var(--red)">Urgence ?</strong> N'utilisez pas ce formulaire. <a href="urgence.html">Voir la procédure d'urgence</a> ou appelez le 15.</div>
+  </div>
+  <div>
+    <form id="rappel" class="panel form">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+      <label class="field">Nom et prénom<input name="nom" required autocomplete="name"></label>
+      <label class="field">Téléphone<input name="telephone" type="tel" required autocomplete="tel" pattern="[0-9 +.()-]{8,}"></label>
+      <label class="field">Je souhaite
+        <select name="motif" required>
+          <option value="rendez-vous">Prendre un rendez-vous</option>
+          <option value="question pratique">Poser une question pratique</option>
+          <option value="message au docteur">Laisser un message au docteur (non médical)</option>
+        </select></label>
+      <fieldset class="field chips"><legend>Je préfère être rappelé</legend>
+        <label><input type="radio" name="creneau" value="le matin" checked><span>Le matin</span></label>
+        <label><input type="radio" name="creneau" value="l'après-midi"><span>L'après-midi</span></label>
+        <label><input type="radio" name="creneau" value="peu importe"><span>Peu importe</span></label>
+      </fieldset>
+      <label class="field">Message court (facultatif)<textarea name="message" maxlength="300" rows="3" placeholder="Ex. : nouveau patient, disponible plutôt le samedi"></textarea><small class="muted" id="cnt">0/300</small></label>
+      <label class="consent"><input type="checkbox" name="consentement" value="oui" required><span>J'accepte que ces informations soient transmises au cabinet pour être rappelé. Elles ne servent à rien d'autre (<a href="mentions.html">en savoir plus</a>).</span></label>
+      <button class="btn btn-call" type="submit" style="width:100%;justify-content:center;font-size:1.05rem">Envoyer ma demande</button>
+    </form>
+    <div id="rappel-out"></div>
+  </div>
+</div></section></main>
+<script src="app.js"></script>
+<script>init("contact").then(contactForm);</script>
+</body>
+</html>
