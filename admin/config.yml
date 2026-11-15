@@ -1,9 +1,19 @@
 # Espace admin (Decap CMS) — accessible sur https://mesyeuxlignebleue.fr/admin
-# Le "backend" sera finalisé lors de la mise en ligne (dépôt GitHub + hébergeur).
 backend:
-  name: github
+  name: git-gateway
   repo: dr-subiger/mesyeuxlignebleue
   branch: main
+  identity_url: https://auth.decapbridge.com/sites/a15141b6-fb60-4af6-975d-dc863937c5f8
+  gateway_url: https://gateway.decapbridge.com
+  commit_messages:
+    create: Création {{collection}} « {{slug}} » - {{author-name}} via DecapBridge
+    update: Modification {{collection}} « {{slug}} » - {{author-name}} via DecapBridge
+    delete: Suppression {{collection}} « {{slug}} » - {{author-name}} via DecapBridge
+    uploadMedia: Ajout « {{path}} » - {{author-name}} via DecapBridge
+    deleteMedia: Suppression « {{path}} » - {{author-name}} via DecapBridge
+
+site_url: https://mesyeuxlignebleue.fr
+logo_url: https://decapbridge.com/decapcms-with-bridge.svg
 
 locale: fr
 media_folder: img/uploads
