@@ -11,18 +11,49 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main>
-<section><div class="wrap">
-  <div class="two">
-    <div>
-      <div class="kicker">Venir au cabinet</div>
-      <h1>Accès</h1>
-      <p style="font-size:1.25rem"><span data-site="adresse"></span><br><span data-site="ville"></span></p>
-      <p data-site="acces_texte"></p>
-      <p><span data-site="acces_bus"></span> <a href="https://www.optymo.fr">optymo.fr</a></p>
-      <p><a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=2+rue+du+Peintre+Baumann+90000+Belfort">Ouvrir l'itinéraire</a></p>
+<main><section><div class="wrap">
+  <div class="kicker">Venir au cabinet</div>
+  <h1>Accès</h1>
+  <p style="font-size:1.25rem;margin-top:0"><strong>2 rue du Peintre Baumann, 90000 Belfort</strong><br><span class="muted">À l'angle de la rue Noël Lapostolest</span></p>
+  <div class="acces-grid">
+    <figure class="plan-wrap"><svg class="plan" viewBox="0 0 900 520" role="img" aria-label="Plan simplifié : le cabinet au coin de la rue du Peintre Baumann et de la rue Noël Lapostolest, le parking juste en face rue Noël Lapostolest, l'arrêt Guidon à l'ouest et les arrêts Liberté Follereau et Madrid à l'est">
+  <rect width="900" height="520" rx="18" fill="#eef3ec"/>
+  <g fill="#e2e8df"><rect x="30" y="30" width="250" height="300" rx="10"/><rect x="380" y="30" width="230" height="300" rx="10"/><rect x="650" y="30" width="220" height="300" rx="10"/><rect x="30" y="440" width="840" height="60" rx="10"/></g>
+  <g stroke="#fff" stroke-linecap="round"><path d="M330 0 V520" stroke-width="34"/><path d="M0 395 H900" stroke-width="44"/></g>
+  <g fill="#5c6b7a" font-family="Public Sans,sans-serif" font-size="24" font-weight="600">
+    <text x="345" y="200" transform="rotate(90 345 200)" text-anchor="middle">rue du Peintre Baumann</text>
+    <text x="560" y="402" text-anchor="middle">rue Noël Lapostolest</text>
+  </g>
+  <g class="plan-park"><rect x="370" y="338" width="440" height="34" rx="6" fill="#dbe6fb" stroke="#2350d6" stroke-width="2" stroke-dasharray="6 4"/>
+    <g stroke="#9db4ea" stroke-width="2"><path d="M408 340 V370"/><path d="M446 340 V370"/><path d="M484 340 V370"/><path d="M522 340 V370"/><path d="M560 340 V370"/><path d="M598 340 V370"/><path d="M636 340 V370"/><path d="M674 340 V370"/><path d="M712 340 V370"/><path d="M750 340 V370"/><path d="M788 340 V370"/></g>
+    <circle cx="590" cy="300" r="22" fill="#2350d6"/><text x="590" y="309" text-anchor="middle" fill="#fff" font-family="Public Sans,sans-serif" font-size="24" font-weight="700">P</text>
+    <text x="625" y="298" font-family="Public Sans,sans-serif" font-size="21" font-weight="700" fill="#14233b">Parking</text>
+    <text x="625" y="320" font-family="Public Sans,sans-serif" font-size="18" fill="#475467">en face du cabinet</text></g>
+  <g class="plan-cab"><rect x="150" y="190" width="150" height="170" rx="10" fill="#14233b"/>
+    <path d="M168 300 C190 296 200 270 225 274 S260 248 284 256" fill="none" stroke="#5b8bff" stroke-width="4" stroke-linecap="round"/>
+    <text x="225" y="228" text-anchor="middle" fill="#fff" font-family="Newsreader,serif" font-size="24" font-weight="600">Cabinet</text>
+    <text x="225" y="248" text-anchor="middle" fill="#c9d6f6" font-family="Public Sans,sans-serif" font-size="16">Dr Subiger · n°2</text>
+    <circle cx="300" cy="330" r="13" fill="#2f855a" stroke="#fff" stroke-width="3"/><path d="M296 324 a3 3 0 1 0 0.1 0 M297 329 v7 h6 l3 5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></g>
+  <path class="plan-walk" d="M500 352 C470 352 420 352 330 352 C318 352 312 340 312 330" fill="none" stroke="#2350d6" stroke-width="4" stroke-dasharray="2 9" stroke-linecap="round"/>
+  <g font-family="Public Sans,sans-serif">
+    <g transform="translate(40 458)"><rect width="230" height="36" rx="18" fill="#fff" stroke="#14233b"/><circle cx="16" cy="18" r="11" fill="#14233b"/><text x="16" y="23" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">B</text><text x="34" y="24" font-size="18" font-weight="700" fill="#14233b">Guidon · ligne 5</text></g>
+    <text x="40" y="446" font-size="16" fill="#475467">← 2 min à pied</text>
+    <g transform="translate(430 458)"><rect width="440" height="36" rx="18" fill="#fff" stroke="#14233b"/><circle cx="16" cy="18" r="11" fill="#14233b"/><text x="16" y="23" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">B</text><text x="34" y="24" font-size="18" font-weight="700" fill="#14233b">Liberté Follereau · Madrid · 3 min →</text></g>
+  </g>
+  <g transform="translate(850 60)" font-family="Public Sans,sans-serif"><circle r="20" fill="#fff"/><path d="M0 -13 L6 6 L0 2 L-6 6 Z" fill="#14233b"/><text y="-24" text-anchor="middle" font-size="16" font-weight="700" fill="#14233b">N</text></g>
+</svg><figcaption>Plan simplifié, non à l'échelle.</figcaption></figure>
+    <div class="acces-cards">
+      <div class="acces-card"><div class="acces-ico" style="background:#e7eefc;color:#2350d6">P</div><div><h3>En voiture</h3><p>Des places de stationnement se trouvent <strong>juste en face du cabinet, rue Noël Lapostolest</strong>. Traversez la rue du Peintre Baumann : vous y êtes en 1 minute.</p></div></div>
+      <div class="acces-card"><div class="acces-ico" style="background:#14233b;color:#fff">B</div><div><h3>En bus (réseau Optymo)</h3>
+        <ul class="arrets">
+          <li><b>Guidon</b> <span class="muted">· 2 min à pied</span><span class="lignes"><span class="ligne">5</span></span></li>
+          <li><b>Liberté Follereau</b> <span class="muted">· 3 min</span><span class="lignes"><span class="ligne">3</span><span class="ligne">5</span><span class="ligne">8</span><span class="ligne">51</span></span></li>
+          <li><b>Madrid / Liberté Madrid</b> <span class="muted">· 4 min</span><span class="lignes"><span class="ligne">1</span><span class="ligne">2</span><span class="ligne">4</span><span class="ligne">39</span></span></li>
+        </ul>
+        <p class="small muted">Lignes relevées en novembre 2026. Horaires et itinéraires sur <a href="https://www.optymo.fr">optymo.fr</a>.</p></div></div>
+      <div class="acces-card"><div class="acces-ico" style="background:#e6f4ec;color:#2f855a">♿</div><div><h3>Accès facilité</h3><p>Cabinet de plain-pied, avec une <strong>rampe d'accès</strong> pour les fauteuils roulants et les poussettes.</p></div></div>
+      <a class="btn btn-call" href="https://www.google.com/maps/dir/?api=1&destination=2+rue+du+Peintre+Baumann+90000+Belfort" style="justify-content:center">Lancer l'itinéraire GPS</a>
     </div>
-    <iframe class="map" title="Plan d'accès" loading="lazy" src="https://maps.google.com/maps?q=2+rue+du+Peintre+Baumann,+90000+Belfort&z=16&output=embed"></iframe>
   </div>
   <div class="gallery">
     <img src="img/facade.jpg" alt="Façade du cabinet, bâtiment de plain-pied">
@@ -31,8 +62,7 @@
     <img src="img/acces-pmr.jpg" alt="Rampe d'accès pour personnes à mobilité réduite">
     <img src="img/salle-examen.jpg" alt="Salle d'examen">
   </div>
-</div></section>
-</main>
+</div></section></main>
 <script src="app.js"></script>
 <script>init("acces");</script>
 </body>
