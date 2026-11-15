@@ -56,8 +56,7 @@ collections:
           - { label: "Texte prise de rendez-vous", name: rdv_texte, widget: text }
           - { label: "À apporter", name: rdv_a_apporter, widget: list }
           - { label: "Message dilatation", name: rdv_dilatation, widget: text }
-          - { label: "Accès", name: acces_texte, widget: text }
-          - { label: "Bus", name: acces_bus, widget: string }
+          - { label: "Accès (page Venir au cabinet)", name: acces_texte, widget: text }
           - { label: "Urgences : appeler le 15 si…", name: urgence_15, widget: list }
           - { label: "Hôpital (nom)", name: urgence_hopital_nom, widget: string }
           - { label: "Hôpital (adresse)", name: urgence_hopital_adresse, widget: string }
