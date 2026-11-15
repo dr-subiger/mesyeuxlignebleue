@@ -1,13 +1,40 @@
 {
   "items": [
-    { "question": "Comment prendre rendez-vous ?", "reponse": "Uniquement par téléphone au 03 84 27 59 99, aux heures d'ouverture du cabinet. Nathalie vous proposera un créneau." },
-    { "question": "Je ne peux pas venir à mon rendez-vous, que faire ?", "reponse": "Prévenez le cabinet le plus tôt possible par téléphone. Votre créneau pourra être proposé à un autre patient." },
-    { "question": "Ma vue a baissé d'un coup, puis-je attendre un rendez-vous ?", "reponse": "Non. Une baisse brutale de la vue est une urgence. Consultez la page [Urgence](urgence.html) ou appelez le 15." },
-    { "question": "Puis-je renouveler mes lunettes sans consulter ?", "reponse": "Oui, dans certains cas : l'opticien peut renouveler ou adapter votre correction si votre ordonnance est encore valable (5 ans de 16 à 42 ans, 3 ans après 42 ans, 1 an avant 16 ans). Une consultation reste nécessaire pour un examen complet de l'œil." },
-    { "question": "Combien de temps dure une consultation ?", "reponse": "Cela dépend des examens. Si une dilatation de la pupille est nécessaire, prévoyez plus de temps et ne conduisez pas après." },
-    { "question": "Quels documents apporter ?", "reponse": "Carte Vitale, carte de mutuelle, lunettes ou lentilles actuelles, dernière ordonnance, liste de vos médicaments et courriers d'autres médecins." },
-    { "question": "Le cabinet est-il accessible en fauteuil roulant ?", "reponse": "Oui. Le cabinet est de plain-pied avec une rampe d'accès." },
-    { "question": "À partir de quel âge faire contrôler la vue d'un enfant ?", "reponse": "Un premier bilan est conseillé vers 3 ans, et plus tôt si l'enfant louche, plisse les yeux ou s'il y a des antécédents dans la famille. Voir la fiche [La vue des enfants](conseils.html#enfants)." },
-    { "question": "Quels sont les tarifs ? La carte Vitale est-elle acceptée ?", "reponse": "[À COMPLÉTER : secteur de conventionnement, carte Vitale, tiers payant.]" }
+    {
+      "question": "Comment prendre rendez-vous ?",
+      "reponse": "Uniquement par téléphone au 03 84 27 59 99, aux heures d'ouverture du cabinet. Nathalie vous proposera un créneau."
+    },
+    {
+      "question": "Je ne peux pas venir à mon rendez-vous, que faire ?",
+      "reponse": "Prévenez le cabinet le plus tôt possible par téléphone. Votre créneau pourra être proposé à un autre patient."
+    },
+    {
+      "question": "Ma vue a baissé d'un coup, puis-je attendre un rendez-vous ?",
+      "reponse": "Non. Une baisse brutale de la vue est une urgence. Consultez la page [Urgence](urgence.html) ou appelez le 15."
+    },
+    {
+      "question": "Puis-je renouveler mes lunettes sans consulter ?",
+      "reponse": "Oui, dans certains cas : l'opticien peut renouveler ou adapter votre correction si votre ordonnance est encore valable (5 ans de 16 à 42 ans, 3 ans après 42 ans, 1 an avant 16 ans). Une consultation reste nécessaire pour un examen complet de l'œil."
+    },
+    {
+      "question": "Combien de temps dure une consultation ?",
+      "reponse": "Cela dépend des examens. Si une dilatation de la pupille est nécessaire, prévoyez plus de temps et ne conduisez pas après."
+    },
+    {
+      "question": "Quels documents apporter ?",
+      "reponse": "Carte Vitale, carte de mutuelle, lunettes ou lentilles actuelles, dernière ordonnance, liste de vos médicaments et courriers d'autres médecins."
+    },
+    {
+      "question": "Le cabinet est-il accessible en fauteuil roulant ?",
+      "reponse": "Oui. Le cabinet est de plain-pied avec une rampe d'accès."
+    },
+    {
+      "question": "À partir de quel âge faire contrôler la vue d'un enfant ?",
+      "reponse": "Un premier bilan est conseillé vers 3 ans, et plus tôt si l'enfant louche, plisse les yeux ou s'il y a des antécédents dans la famille. Voir la fiche [La vue des enfants](conseils.html#enfants)."
+    },
+    {
+      "question": "Quels sont les tarifs ?",
+      "reponse": "Le Dr Subiger est médecin **non conventionné (secteur 3)**. Jusqu'au 31 décembre 2026, la consultation est de **90 €**.\n\nPour un médecin non conventionné, le remboursement de l'Assurance maladie est très faible. Renseignez-vous auprès de votre mutuelle, certaines prennent en charge une partie des honoraires."
+    }
   ]
 }
