@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Questions fréquentes · Dr Laurent Subiger, ophtalmologue à Belfort</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<section><div class="wrap two">
+  <div>
+    <div class="kicker">Questions fréquentes</div>
+    <h1>Vous vous demandez peut-être…</h1>
+    <p class="muted">Vous ne trouvez pas votre réponse ? Appelez le secrétariat au <a data-tel></a>.</p>
+  </div>
+  <div id="faq-list"></div>
+</div></section>
+</main>
+<script src="app.js"></script>
+<script>init("faq").then(() => renderFaq(document.getElementById("faq-list")));</script>
+</body>
+</html>

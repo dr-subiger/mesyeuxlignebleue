@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Conseils santé · Dr Laurent Subiger, ophtalmologue à Belfort</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main><section><div class="wrap">
+  <div id="vue-liste">
+    <div class="kicker">Conseils santé</div>
+    <h1>Mieux comprendre vos yeux</h1>
+    <p class="muted" style="max-width:40em;font-size:1.1rem">Des fiches simples, en texte ou en vidéo, pour prendre soin de vos yeux au quotidien.</p>
+    <div class="filters" id="filters" style="margin-top:2rem"></div>
+    <div class="fiches" id="liste"></div>
+  </div>
+  <article id="detail" hidden></article>
+</div></section></main>
+<script src="app.js"></script>
+<script>init("conseils").then(renderFiches);</script>
+</body>
+</html>

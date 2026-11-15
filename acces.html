@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Venir au cabinet · Dr Laurent Subiger, ophtalmologue à Belfort</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<section><div class="wrap">
+  <div class="two">
+    <div>
+      <div class="kicker">Venir au cabinet</div>
+      <h1>Accès</h1>
+      <p style="font-size:1.25rem"><span data-site="adresse"></span><br><span data-site="ville"></span></p>
+      <p data-site="acces_texte"></p>
+      <p><span data-site="acces_bus"></span> <a href="https://www.optymo.fr">optymo.fr</a></p>
+      <p><a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=2+rue+du+Peintre+Baumann+90000+Belfort">Ouvrir l'itinéraire</a></p>
+    </div>
+    <iframe class="map" title="Plan d'accès" loading="lazy" src="https://maps.google.com/maps?q=2+rue+du+Peintre+Baumann,+90000+Belfort&z=16&output=embed"></iframe>
+  </div>
+  <div class="gallery">
+    <img src="img/facade.jpg" alt="Façade du cabinet, bâtiment de plain-pied">
+    <img src="img/accueil.jpg" alt="Hall d'accueil lumineux avec plantes">
+    <img src="img/salle-attente.jpg" alt="Salle d'attente">
+    <img src="img/acces-pmr.jpg" alt="Rampe d'accès pour personnes à mobilité réduite">
+    <img src="img/salle-examen.jpg" alt="Salle d'examen">
+  </div>
+</div></section>
+</main>
+<script src="app.js"></script>
+<script>init("acces");</script>
+</body>
+</html>

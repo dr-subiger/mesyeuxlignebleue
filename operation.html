@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Après mon opération · Dr Laurent Subiger, ophtalmologue à Belfort</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<section><div class="wrap">
+  <div class="kicker">Après mon opération</div>
+  <h1>Mon calendrier de gouttes</h1>
+  <p class="muted" style="max-width:42em;font-size:1.1rem">Recopiez votre ordonnance une seule fois, puis cochez chaque goutte. Vos données restent uniquement sur ce téléphone ou cet ordinateur.</p>
+
+  <form id="op-form" class="panel" style="margin-top:2rem;max-width:760px">
+    <label class="field">Date de l'opération<input type="date" id="op-date" required></label>
+    <h3 style="margin-top:1.4rem">Mes collyres (d'après l'ordonnance)</h3>
+    <div id="op-drops"></div>
+    <div class="cta" style="margin-top:1rem">
+      <button type="button" class="btn btn-ghost" id="op-add">+ Ajouter un collyre</button>
+      <button type="submit" class="btn btn-primary">Voir mon calendrier</button>
+    </div>
+  </form>
+
+  <div id="op-view" hidden style="margin-top:2rem;max-width:760px">
+    <div class="day-nav">
+      <button class="btn btn-ghost" id="op-prev" aria-label="Jour précédent">←</button>
+      <div><div id="op-day" class="day-title"></div><div id="op-progress" class="muted"></div></div>
+      <button class="btn btn-ghost" id="op-next" aria-label="Jour suivant">→</button>
+    </div>
+    <div id="op-list" class="panel"></div>
+    <p class="cta" style="margin-top:1rem;font-size:.92rem">
+      <button class="link" id="op-today">Revenir à aujourd'hui</button>
+      <button class="link" id="op-edit">Modifier mon ordonnance</button>
+      <button class="link" id="op-reset">Tout effacer</button>
+    </p>
+  </div>
+</div></section>
+
+<section class="alt"><div class="wrap two">
+  <div>
+    <div class="kicker">Consignes</div>
+    <h2>Les bons gestes</h2>
+    <div class="prose" id="consignes"></div>
+  </div>
+  <div>
+    <div class="alert">
+      <h2>Appelez sans attendre si :</h2>
+      <ul class="check" id="alertes"></ul>
+      <p class="cta" style="margin-top:1rem"><a class="btn btn-primary tel-cab"></a></p>
+      <p style="margin:.8rem 0 0;font-size:.92rem">Cabinet fermé : <a href="urgence.html">voir la procédure d'urgence</a>.</p>
+    </div>
+  </div>
+</div></section>
+</main>
+<script src="app.js"></script>
+<script>init("operation").then(renderOperation);</script>
+</body>
+</html>

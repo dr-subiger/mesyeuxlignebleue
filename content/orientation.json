@@ -1,0 +1,37 @@
+{
+  "depart": "start",
+  "noeuds": [
+    { "id": "start", "question": "Qu'est-ce qui vous amène ?", "options": [
+      { "label": "Ma vue a baissé brutalement", "suite": "r-15" },
+      { "label": "Je vois des éclairs, de nouvelles « mouches » ou un voile", "suite": "r-urgent" },
+      { "label": "J'ai l'œil rouge", "suite": "q-rouge" },
+      { "label": "J'ai reçu un choc ou un produit dans l'œil", "suite": "q-choc" },
+      { "label": "Mes paupières sont gonflées, rouges ou me grattent", "suite": "q-paupiere" },
+      { "label": "Contrôle, lunettes, suivi (diabète, glaucome…)", "suite": "r-rdv" }
+    ]},
+    { "id": "q-rouge", "question": "Avez-vous aussi une douleur forte ou une baisse de la vue ?", "options": [
+      { "label": "Oui", "suite": "r-urgent" },
+      { "label": "Non, mais je porte des lentilles", "suite": "r-lentilles" },
+      { "label": "Non, c'est une gêne légère", "suite": "r-conseil" }
+    ]},
+    { "id": "q-choc", "question": "Que s'est-il passé ?", "options": [
+      { "label": "Un produit chimique (javel, ciment, nettoyant…)", "suite": "r-chimique" },
+      { "label": "Un coup ou un objet, avec douleur ou baisse de la vue", "suite": "r-15" },
+      { "label": "Une poussière ou une petite saleté", "suite": "r-poussiere" }
+    ]},
+    { "id": "q-paupiere", "question": "Avez-vous de la fièvre, un gonflement chaud et douloureux, ou du mal à bouger l'œil ?", "options": [
+      { "label": "Oui", "suite": "r-urgent" },
+      { "label": "Non", "suite": "r-paupiere" }
+    ]}
+  ],
+  "resultats": [
+    { "id": "r-15", "niveau": "vital", "titre": "Urgence : appelez le 15", "texte": "Une baisse brutale de la vue ou un traumatisme de l'œil doit être vu sans attendre. Appelez le 15 (SAMU) ou rendez-vous directement aux urgences.", "fiche": "" },
+    { "id": "r-urgent", "niveau": "urgent", "titre": "À voir aujourd'hui", "texte": "Ces symptômes doivent être examinés dans la journée. Pendant les heures d'ouverture, appelez le cabinet et dites que c'est urgent. Cabinet fermé : rendez-vous aux urgences de l'hôpital.", "fiche": "" },
+    { "id": "r-chimique", "niveau": "vital", "titre": "Rincez immédiatement, puis appelez le 15", "texte": "Rincez l'œil à l'eau du robinet ou au sérum physiologique pendant au moins 15 minutes, paupières bien ouvertes. Ensuite, appelez le 15 ou allez aux urgences avec l'emballage du produit.", "fiche": "" },
+    { "id": "r-lentilles", "niveau": "rapide", "titre": "Retirez vos lentilles et consultez sous 24 h", "texte": "Un œil rouge chez un porteur de lentilles peut être une infection. Retirez les lentilles, ne les remettez pas, et appelez le cabinet. Si la douleur augmente ou si la vue baisse, c'est une urgence.", "fiche": "" },
+    { "id": "r-poussiere", "niveau": "rapide", "titre": "Rincez sans frotter", "texte": "Rincez l'œil à l'eau claire ou au sérum physiologique. Ne frottez pas. Si la gêne persiste plus de quelques heures, ou si vous travailliez avec une meuleuse ou un marteau, appelez le cabinet le jour même.", "fiche": "" },
+    { "id": "r-conseil", "niveau": "conseil", "titre": "Pas d'urgence a priori", "texte": "Une gêne légère avec des sécrétions est souvent une conjonctivite. Votre pharmacien ou votre médecin traitant peut vous conseiller. Si rien ne s'améliore après 3 jours, ou si une douleur apparaît, appelez le cabinet.", "fiche": "" },
+    { "id": "r-paupiere", "niveau": "conseil", "titre": "Commencez par les soins des paupières", "texte": "Les soins quotidiens (chaleur, massage, nettoyage) soulagent la plupart des cas. Si une boule persiste plus de 3 semaines, prenez rendez-vous.", "fiche": "paupieres" },
+    { "id": "r-rdv", "niveau": "rdv", "titre": "Prenez rendez-vous", "texte": "Appelez le secrétariat aux heures d'ouverture pour fixer une consultation.", "fiche": "" }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "items": [
+    {
+      "slug": "diabete",
+      "titre": "Diabète et yeux",
+      "theme": "Maladies chroniques",
+      "resume": "Le diabète peut abîmer la rétine sans aucun symptôme au début. Un contrôle régulier permet d'agir à temps.",
+      "video": "",
+      "valide": false,
+      "contenu": "## Pourquoi le diabète touche les yeux\nUn taux de sucre trop élevé fragilise les petits vaisseaux de la rétine, la membrane qui tapisse le fond de l'œil. C'est la **rétinopathie diabétique**. Au début, elle ne fait pas mal et ne gêne pas la vue.\n\n## Ce qu'il faut faire\n- Faire contrôler le fond d'œil **au moins une fois par an**, même si vous voyez bien\n- Garder un diabète bien équilibré (suivez votre HbA1c avec votre médecin)\n- Surveiller votre tension artérielle et votre cholestérol\n- Arrêter le tabac\n\n## Quand consulter rapidement\n- Baisse de la vue, même légère\n- Tache ou voile devant un œil\n- Lignes droites qui paraissent déformées"
+    },
+    {
+      "slug": "alimentation",
+      "titre": "Alimentation et santé des yeux",
+      "theme": "Prévention",
+      "resume": "Une alimentation variée, riche en légumes verts et en poissons gras, aide à protéger la rétine avec l'âge.",
+      "video": "",
+      "valide": false,
+      "contenu": "## Les bons réflexes dans l'assiette\n- **Légumes verts à feuilles** (épinards, chou, salade, brocoli) : riches en lutéine, un pigment protecteur de la rétine\n- **Poissons gras** 2 fois par semaine (sardine, maquereau, saumon) : apport en oméga-3\n- **Fruits et légumes colorés** chaque jour\n- Une poignée de **fruits secs** (noix, amandes)\n\n## À limiter\n- Le tabac : c'est le premier facteur de risque évitable de la DMLA (dégénérescence maculaire liée à l'âge)\n- Les excès de sucres et de graisses saturées\n\n## Compléments alimentaires\nIls ne sont utiles que dans certaines situations. Demandez conseil lors de votre consultation avant d'en prendre."
+    },
+    {
+      "slug": "paupieres",
+      "titre": "Soin des paupières",
+      "theme": "Soins au quotidien",
+      "resume": "Paupières rouges, qui grattent ou collées le matin ? Quelques gestes simples chaque jour soulagent la plupart des blépharites.",
+      "video": "",
+      "valide": false,
+      "contenu": "## Le soin en 3 étapes, matin et soir\n1. **Chaleur** : posez une compresse ou un masque chaud sur les paupières fermées pendant 5 à 10 minutes\n2. **Massage** : massez doucement le bord des paupières, de haut en bas pour la paupière supérieure, de bas en haut pour l'inférieure\n3. **Nettoyage** : nettoyez le bord des cils avec une compresse ou une lingette adaptée\n\n## Bon à savoir\n- La blépharite est souvent chronique : le soin doit être fait **tous les jours**, même quand ça va mieux\n- Démaquillez-vous soigneusement chaque soir\n- Ne frottez pas vos yeux\n\n## Quand consulter\n- Douleur, baisse de vision ou œil très rouge\n- Boule sur la paupière qui ne disparaît pas après 3 semaines de soins"
+    },
+    {
+      "slug": "ecrans-yeux-secs",
+      "titre": "Écrans et yeux secs",
+      "theme": "Soins au quotidien",
+      "resume": "Picotements, sensation de sable, fatigue en fin de journée : les écrans font moins cligner des yeux.",
+      "video": "",
+      "valide": false,
+      "contenu": "## La règle du 20-20-20\nToutes les **20 minutes**, regardez à **6 mètres** (20 pieds) pendant **20 secondes**. Vos yeux se reposent et vous clignez à nouveau.\n\n## Au poste de travail\n- Écran à une longueur de bras, le haut de l'écran à hauteur des yeux ou un peu plus bas\n- Pas de lumière forte derrière l'écran ni de reflet dessus\n- Aérez la pièce, évitez l'air sec et les ventilations dirigées vers le visage\n\n## Larmes artificielles\nDes gouttes **sans conservateur** peuvent soulager. Si la gêne persiste plus de quelques semaines, parlez-en lors d'une consultation."
+    },
+    {
+      "slug": "enfants",
+      "titre": "La vue des enfants",
+      "theme": "Enfants",
+      "resume": "Un enfant ne se plaint presque jamais de mal voir. Voici les signes qui doivent vous alerter.",
+      "video": "",
+      "valide": false,
+      "contenu": "## Signes d'alerte\n- Un œil qui louche, même de temps en temps\n- L'enfant plisse les yeux, se rapproche de la télévision ou des livres\n- Il penche la tête, se cogne souvent, ferme un œil au soleil\n- Maux de tête ou fatigue après l'école\n\n## Prévenir la myopie\n- Au moins **2 heures par jour en extérieur**, à la lumière du jour\n- Limiter les écrans, surtout avant 6 ans, et faire des pauses\n\n## Quand faire contrôler\nUn premier bilan est conseillé vers 3 ans, et plus tôt en cas de signe d'alerte ou d'antécédents familiaux (strabisme, forte myopie)."
+    }
+  ]
+}

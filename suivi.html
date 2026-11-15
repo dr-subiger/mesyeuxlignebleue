@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mon suivi · Dr Laurent Subiger, ophtalmologue à Belfort</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<section><div class="wrap">
+  <div class="kicker">Mon suivi</div>
+  <h1>Vos yeux, entre deux consultations</h1>
+  <p class="muted" style="max-width:42em;font-size:1.1rem">Des outils simples pour ne pas oublier vos contrôles et surveiller votre vue chez vous. Rien n'est envoyé : tout reste sur votre appareil.</p>
+  <div class="cols" style="margin-top:2rem">
+    <a href="#rappels"><h3>Me rappeler mon contrôle</h3><p>Un rappel dans votre agenda, au bon moment.</p><span class="arrow">Créer un rappel →</span></a>
+    <a href="#amsler"><h3>Test d'Amsler</h3><p>Surveiller sa vue centrale chaque semaine (DMLA).</p><span class="arrow">Faire le test →</span></a>
+    <a href="operation.html"><h3>Après mon opération</h3><p>Calendrier des gouttes et consignes.</p><span class="arrow">Ouvrir →</span></a>
+  </div>
+</div></section>
+
+<section class="alt" id="rappels"><div class="wrap two">
+  <div>
+    <div class="kicker">Rappel</div>
+    <h2>Ne plus oublier son contrôle</h2>
+    <p class="muted">Choisissez votre situation. Nous proposons une date, que vous pouvez modifier selon ce que le médecin vous a indiqué.</p>
+  </div>
+  <div class="panel">
+    <label class="field">Ma situation<select id="r-situation"></select></label>
+    <label class="field">Date du rappel<input type="date" id="r-date"></label>
+    <div id="r-out" hidden></div>
+  </div>
+</div></section>
+
+<section id="amsler"><div class="wrap two">
+  <div>
+    <div class="kicker">Auto-surveillance</div>
+    <h2>Test de la grille d'Amsler</h2>
+    <span class="badge" style="margin:0 0 1rem">Brouillon à valider</span>
+    <ol class="steps-list">
+      <li>Gardez vos lunettes de lecture et tenez l'écran à environ 30 cm.</li>
+      <li>Cachez un œil avec la main.</li>
+      <li>Fixez le point noir au centre, sans le quitter des yeux.</li>
+      <li>Les lignes sont-elles toutes droites, sans trou ni zone floue ?</li>
+      <li>Recommencez avec l'autre œil.</li>
+    </ol>
+    <div class="cta" style="margin-top:1.4rem">
+      <button class="btn btn-ghost" data-amsler="ok">Tout est droit et net</button>
+      <button class="btn btn-ghost" data-amsler="ko">Lignes déformées ou zone manquante</button>
+    </div>
+    <p class="muted" id="a-last" style="font-size:.9rem;margin-top:1rem"></p>
+    <div id="a-res" style="margin-top:1rem"></div>
+  </div>
+  <div class="amsler-wrap">
+    <svg viewBox="0 0 200 200" class="amsler" role="img" aria-label="Grille d'Amsler : quadrillage avec un point au centre">
+      <rect width="200" height="200" fill="#fff"/>
+      <g stroke="#111" stroke-width=".6" id="grid"></g>
+      <circle cx="100" cy="100" r="3" fill="#111"/>
+    </svg>
+  </div>
+</div></section>
+
+<section class="alt" id="minuteurs"><div class="wrap">
+  <div class="kicker">Minuteurs</div>
+  <h2>Prendre de bonnes habitudes</h2>
+  <div class="two" style="margin-top:2rem">
+    <div class="panel timer" id="t-paupieres"><h3>Soin des paupières</h3><p class="muted">Chaleur, massage, nettoyage : on vous guide. Un son signale chaque étape.</p><div class="t-step"></div><div class="t-time"></div><button class="btn btn-primary">Démarrer</button><p style="margin-top:1rem"><a href="conseils.html#paupieres">Lire la fiche complète</a></p></div>
+    <div class="panel timer" id="t-ecran"><h3>Pause écran 20-20-20</h3><p class="muted">Laissez la page ouverte : toutes les 20 minutes, un son vous invite à regarder au loin pendant 20 secondes.</p><div class="t-step"></div><div class="t-time"></div><button class="btn btn-primary">Démarrer</button><p style="margin-top:1rem"><a href="conseils.html#ecrans-yeux-secs">Lire la fiche complète</a></p></div>
+  </div>
+</div></section>
+</main>
+<script src="app.js"></script>
+<script>
+  const g = document.getElementById("grid");
+  for (let i = 0; i <= 200; i += 10) g.insertAdjacentHTML("beforeend", `<line x1="${i}" y1="0" x2="${i}" y2="200"/><line x1="0" y1="${i}" x2="200" y2="${i}"/>`);
+  init("suivi").then(renderSuivi);
+</script>
+</body>
+</html>

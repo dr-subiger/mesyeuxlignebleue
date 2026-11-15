@@ -1,0 +1,101 @@
+# Espace admin (Decap CMS) — accessible sur https://mesyeuxlignebleue.fr/admin
+# Le "backend" sera finalisé lors de la mise en ligne (dépôt GitHub + hébergeur).
+backend:
+  name: github
+  repo: dr-subiger/mesyeuxlignebleue
+  branch: main
+
+locale: fr
+media_folder: img/uploads
+public_folder: img/uploads
+
+collections:
+  - name: cabinet
+    label: "Cabinet"
+    files:
+      - name: actualites
+        label: "Actualités"
+        file: content/actualites.json
+        fields:
+          - label: "Actualités"
+            name: items
+            widget: list
+            summary: "{{fields.date}} · {{fields.titre}}"
+            fields:
+              - { label: "Date", name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "DD.MM.YYYY", time_format: false }
+              - { label: "Titre", name: titre, widget: string }
+              - { label: "Texte", name: texte, widget: markdown, buttons: [bold, link, bulleted-list], editor_components: [] }
+
+      - name: infos
+        label: "Horaires, téléphone, bandeau"
+        file: content/site.json
+        fields:
+          - { label: "Afficher le bandeau d'information en haut du site", name: bandeau_actif, widget: boolean }
+          - { label: "Texte du bandeau (ex. fermeture pour congés)", name: bandeau_texte, widget: string, required: false }
+          - { label: "Téléphone", name: telephone, widget: string }
+          - label: "Horaires"
+            name: horaires
+            widget: list
+            allow_add: false
+            summary: "{{fields.jour}} : {{fields.matin}} {{fields.apres_midi}}"
+            fields:
+              - { label: "Jour", name: jour, widget: string }
+              - { label: "Matin", name: matin, widget: string }
+              - { label: "Après-midi", name: apres_midi, widget: string, required: false }
+          - { label: "Texte prise de rendez-vous", name: rdv_texte, widget: text }
+          - { label: "À apporter", name: rdv_a_apporter, widget: list }
+          - { label: "Message dilatation", name: rdv_dilatation, widget: text }
+          - { label: "Accès", name: acces_texte, widget: text }
+          - { label: "Bus", name: acces_bus, widget: string }
+          - { label: "Urgences : appeler le 15 si…", name: urgence_15, widget: list }
+          - { label: "Hôpital (nom)", name: urgence_hopital_nom, widget: string }
+          - { label: "Hôpital (adresse)", name: urgence_hopital_adresse, widget: string }
+          - { label: "Hôpital (téléphone)", name: urgence_hopital_tel, widget: string }
+          - { label: "Nom du cabinet", name: nom_cabinet, widget: hidden }
+          - { label: "Adresse", name: adresse, widget: hidden }
+          - { label: "Ville", name: ville, widget: hidden }
+
+      - name: fiches
+        label: "Fiches conseils santé"
+        file: content/fiches.json
+        fields:
+          - label: "Fiches"
+            name: items
+            widget: list
+            summary: "{{fields.titre}}"
+            fields:
+              - { label: "Titre", name: titre, widget: string }
+              - { label: "Identifiant (sans accent ni espace, ex. secheresse-oculaire)", name: slug, widget: string, pattern: ["^[a-z0-9-]+$", "Lettres minuscules, chiffres et tirets uniquement"] }
+              - { label: "Thème", name: theme, widget: select, options: ["Maladies chroniques", "Prévention", "Soins au quotidien", "Enfants", "Chirurgie", "Autre"] }
+              - { label: "Résumé (1 à 2 phrases)", name: resume, widget: text }
+              - { label: "Lien vidéo YouTube (facultatif)", name: video, widget: string, required: false }
+              - { label: "Contenu validé par le Dr Subiger", name: valide, widget: boolean, default: false }
+              - { label: "Contenu", name: contenu, widget: markdown, buttons: [bold, heading-two, bulleted-list, numbered-list, link], editor_components: [] }
+
+      - name: faq
+        label: "Questions fréquentes"
+        file: content/faq.json
+        fields:
+          - label: "Questions"
+            name: items
+            widget: list
+            summary: "{{fields.question}}"
+            fields:
+              - { label: "Question", name: question, widget: string }
+              - { label: "Réponse", name: reponse, widget: markdown, buttons: [bold, link, bulleted-list], editor_components: [] }
+
+      - name: suivi
+        label: "Mon suivi et après opération"
+        file: content/suivi.json
+        fields:
+          - label: "Rappels de contrôle"
+            name: rappels
+            widget: list
+            summary: "{{fields.situation}} · {{fields.mois}} mois"
+            fields:
+              - { label: "Situation", name: situation, widget: string }
+              - { label: "Délai proposé (mois)", name: mois, widget: number, value_type: int, min: 1 }
+              - { label: "Texte du rappel", name: texte, widget: string }
+          - { label: "Consignes après opération validées par le Dr Subiger", name: postop_valide, widget: boolean, default: false }
+          - { label: "Consignes après opération", name: postop_consignes, widget: markdown, buttons: [bold, heading-two, bulleted-list], editor_components: [] }
+          - { label: "Signes d'alerte après opération", name: postop_alerte, widget: list }

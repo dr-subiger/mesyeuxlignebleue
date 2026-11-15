@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Urgence ophtalmologique · Dr Laurent Subiger, Belfort</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main><section><div class="wrap">
+  <div class="kicker" style="color:var(--red)">Urgence</div>
+  <h1>En cas d'urgence pour vos yeux</h1>
+  <p class="muted" style="max-width:40em;font-size:1.1rem">Certains symptômes ne peuvent pas attendre un rendez-vous. Voici quoi faire, selon la situation.</p>
+
+  <div class="alert" style="margin-top:2rem">
+    <h2>Appelez le 15 immédiatement si :</h2>
+    <ul class="check" data-list="urgence_15"></ul>
+    <p class="cta" style="margin-top:1.2rem"><a class="btn btn-red" href="tel:15">Appeler le 15</a> <span class="muted">ou le 112 depuis un portable</span></p>
+  </div>
+
+  <div class="note" style="margin-top:1.5rem"><strong>Produit chimique dans l'œil :</strong> rincez tout de suite à l'eau du robinet pendant au moins 15 minutes, paupières bien ouvertes, avant même d'appeler. Gardez l'emballage du produit.</div>
+
+  <div class="steps">
+    <div><div class="num">1</div><h3>Le cabinet est ouvert</h3><p>Appelez le secrétariat et précisez que c'est urgent. Nous ferons notre possible pour vous recevoir dans la journée.</p><p><a class="tel-big" data-tel style="font-size:1.4rem"></a></p></div>
+    <div><div class="num">2</div><h3>Le cabinet est fermé</h3><p>Soir, week-end, jours fériés : rendez-vous aux urgences de l'hôpital.</p><p><strong data-site="urgence_hopital_nom"></strong><br><span data-site="urgence_hopital_adresse"></span><br>Standard : <a id="hop-tel"><span data-site="urgence_hopital_tel"></span></a></p></div>
+    <div><div class="num">3</div><h3>Vous hésitez</h3><p>Répondez à quelques questions pour savoir à quel délai consulter.</p><p><a class="btn btn-ghost" href="orientation.html">M'orienter</a></p></div>
+  </div>
+
+  <p class="disclaimer">Ce que nous vous déconseillons : mettre un collyre au hasard, frotter l'œil, ou attendre le lendemain si la vue a baissé.</p>
+</div></section></main>
+<script src="app.js"></script>
+<script>init("urgence").then(s => { document.getElementById("hop-tel").href = telHref(s.urgence_hopital_tel); });</script>
+</body>
+</html>

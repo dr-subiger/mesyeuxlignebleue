@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>M'orienter · Dr Laurent Subiger, ophtalmologue à Belfort</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main><section><div class="wrap">
+  <div class="kicker">M'orienter</div>
+  <h1>Dois-je consulter, et quand ?</h1>
+  <p class="muted" style="max-width:40em;font-size:1.1rem;margin-bottom:2.5rem">Répondez à quelques questions. Nous vous indiquons le bon délai et la personne à contacter.</p>
+  <div class="tree" id="tree"></div>
+  <p class="disclaimer">Cet outil donne une orientation générale et ne remplace pas l'avis d'un médecin. En cas de doute, appelez le cabinet ou le 15.</p>
+</div></section></main>
+<script src="app.js"></script>
+<script>init("orientation").then(renderTree);</script>
+</body>
+</html>

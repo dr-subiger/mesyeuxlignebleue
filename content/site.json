@@ -1,0 +1,37 @@
+{
+  "nom_cabinet": "Cabinet d'ophtalmologie du Dr Laurent Subiger",
+  "telephone": "03 84 27 59 99",
+  "adresse": "2 rue du Peintre Baumann",
+  "ville": "90000 Belfort",
+  "bandeau_actif": false,
+  "bandeau_texte": "Le cabinet sera fermé du 22 au 31 décembre. Réouverture le mardi 2 janvier.",
+  "horaires": [
+    { "jour": "Lundi", "matin": "Fermé", "apres_midi": "" },
+    { "jour": "Mardi", "matin": "8h00 – 12h00", "apres_midi": "14h00 – 18h00" },
+    { "jour": "Mercredi", "matin": "8h00 – 12h00", "apres_midi": "14h00 – 18h00" },
+    { "jour": "Jeudi", "matin": "8h00 – 12h00", "apres_midi": "14h00 – 18h00" },
+    { "jour": "Vendredi", "matin": "8h00 – 12h00", "apres_midi": "14h00 – 18h00" },
+    { "jour": "Samedi", "matin": "8h00 – 12h00", "apres_midi": "Fermé" },
+    { "jour": "Dimanche", "matin": "Fermé", "apres_midi": "" }
+  ],
+  "rdv_texte": "Les rendez-vous se prennent uniquement par téléphone, auprès de Nathalie, aux heures d'ouverture du cabinet.",
+  "rdv_a_apporter": [
+    "Votre carte Vitale et votre carte de mutuelle",
+    "Vos lunettes et/ou lentilles actuelles",
+    "Votre dernière ordonnance de lunettes",
+    "La liste de vos médicaments",
+    "Les courriers ou comptes rendus d'autres médecins"
+  ],
+  "rdv_dilatation": "Certains examens nécessitent de dilater la pupille : la vue reste floue et éblouie pendant quelques heures. Ne conduisez pas après l'examen et venez accompagné si possible.",
+  "acces_texte": "Le cabinet est de plain-pied et accessible aux personnes à mobilité réduite grâce à une rampe d'accès.",
+  "acces_bus": "Réseau de bus Optymo : calculez votre itinéraire sur optymo.fr.",
+  "urgence_15": [
+    "Perte brutale de la vue, d'un œil ou des deux",
+    "Produit chimique dans l'œil (après rinçage)",
+    "Plaie ou choc violent sur l'œil",
+    "Vision double ou paupière qui tombe d'un coup, avec maux de tête"
+  ],
+  "urgence_hopital_nom": "Urgences de l'Hôpital Nord Franche-Comté",
+  "urgence_hopital_adresse": "100 route de Moval, 90400 Trévenans",
+  "urgence_hopital_tel": "03 84 98 20 20"
+}
