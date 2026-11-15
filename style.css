@@ -567,3 +567,23 @@ main h1{font-weight:500;letter-spacing:-.01em}
 .form .chips input{position:absolute;opacity:0;width:1px;height:1px}
 .scene{overflow:hidden}
 html,body{overflow-x:hidden}
+
+/* page Accès */
+.acces-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:start;margin-top:1.5rem}
+.plan-wrap{margin:0}
+.plan{width:100%;height:auto;display:block;border-radius:18px;box-shadow:var(--shadow)}
+.plan-wrap figcaption{font-size:.8rem;color:var(--ink-2);margin-top:.4rem}
+.plan-walk{animation:walk 1.4s linear infinite}
+@keyframes walk{to{stroke-dashoffset:-22}}
+@media (prefers-reduced-motion:reduce){.plan-walk{animation:none}}
+.acces-cards{display:grid;gap:14px}
+.acces-card{display:flex;gap:16px;background:#fff;border:1px solid #e7e3da;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+.acces-card h3{margin:0 0 .3rem;font-size:1.2rem}
+.acces-card p{margin:.2rem 0}
+.acces-ico{flex:none;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-weight:700;font-size:1.2rem}
+.arrets{list-style:none;padding:0;margin:.4rem 0}
+.arrets li{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem .5rem;padding:.5rem 0;border-bottom:1px solid #eee}
+.arrets li:last-child{border-bottom:0}
+.lignes{display:flex;gap:4px;margin-left:auto}
+.ligne{display:inline-grid;place-items:center;min-width:28px;height:24px;padding:0 6px;border-radius:6px;background:#14233b;color:#fff;font-weight:700;font-size:.82rem}
+@media (max-width:900px){.acces-grid{grid-template-columns:1fr}}
