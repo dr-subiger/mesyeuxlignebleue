@@ -40,7 +40,7 @@ CMS.registerPreviewTemplate("infos", createClass({ render() {
         H("div", null, H("h2", null, "Prendre rendez-vous"), H("p", null, d.rdv_texte), H("p", { className: "tel-big" }, d.telephone),
           H("ul", { className: "check" }, (d.rdv_a_apporter || []).map((x, i) => H("li", { key: i }, x))),
           H("div", { className: "note" }, d.rdv_dilatation))),
-      sec("page Venir au cabinet", H("div", { className: "acces-card" }, H("div", { className: "acces-ico", style: { background: "#e6f4ec", color: "#2f855a" } }, "♿"), H("div", null, H("h3", null, "Accès facilité"), H("p", null, d.acces_texte)))),
+      sec("page Venir au cabinet", H("div", { className: "acces-card" }, H("div", { className: "acces-ico", style: { background: "#e6f4ec", color: "#2f855a" } }, "PMR"), H("div", null, H("h3", null, "Accès PMR"), H("p", null, d.acces_texte)))),
       sec("page Urgence",
         H("div", { className: "alert" }, H("h2", null, "Appelez le 15 immédiatement si :"), H("ul", { className: "check" }, (d.urgence_15 || []).map((x, i) => H("li", { key: i }, x)))),
         H("div", { className: "steps", style: { gridTemplateColumns: "1fr" } }, H("div", null, H("h3", null, "Le cabinet est fermé"), H("p", null, H("strong", null, d.urgence_hopital_nom), H("br"), d.urgence_hopital_adresse, H("br"), "Standard : " + (d.urgence_hopital_tel || "")))))));
