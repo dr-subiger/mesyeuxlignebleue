@@ -25,12 +25,12 @@
       "reponse": "Carte Vitale, carte de mutuelle, lunettes ou lentilles actuelles, dernière ordonnance, liste de vos médicaments et courriers d'autres médecins."
     },
     {
-      "question": "Le cabinet est-il accessible en fauteuil roulant ?",
-      "reponse": "Oui. Le cabinet est de plain-pied avec une rampe d'accès."
+      "question": "Le cabinet est-il accessible aux personnes à mobilité réduite (PMR) ?",
+      "reponse": "Oui, le cabinet dispose d'un accès PMR : il est de plain-pied, avec une rampe d'accès."
     },
     {
       "question": "À partir de quel âge faire contrôler la vue d'un enfant ?",
-      "reponse": "Un premier bilan est conseillé vers 3 ans, et plus tôt si l'enfant louche, plisse les yeux ou s'il y a des antécédents dans la famille. Voir la fiche [La vue des enfants](conseils.html#enfants)."
+      "reponse": "Un premier bilan est conseillé vers 3 ans, et plus tôt si l'enfant présente un strabisme, plisse les yeux ou s'il y a des antécédents dans la famille. Voir la fiche [La vue des enfants](conseils.html#enfants)."
     },
     {
       "question": "Quels sont les tarifs ?",
