@@ -1,13 +1,37 @@
 {
   "rappels": [
-    { "situation": "Diabète", "mois": 12, "texte": "Contrôle du fond d'œil (diabète)" },
-    { "situation": "Glaucome ou tension de l'œil", "mois": 6, "texte": "Contrôle glaucome" },
-    { "situation": "DMLA", "mois": 6, "texte": "Contrôle DMLA" },
-    { "situation": "Porteur de lentilles", "mois": 12, "texte": "Contrôle lentilles de contact" },
-    { "situation": "Enfant", "mois": 12, "texte": "Contrôle de la vue de mon enfant" },
-    { "situation": "Plus de 45 ans, sans maladie de l'œil", "mois": 24, "texte": "Contrôle de la vue" }
+    {
+      "situation": "Diabète",
+      "mois": 12,
+      "texte": "Contrôle du fond d'œil (diabète)"
+    },
+    {
+      "situation": "Glaucome ou tension de l'œil",
+      "mois": 6,
+      "texte": "Contrôle glaucome"
+    },
+    {
+      "situation": "DMLA",
+      "mois": 6,
+      "texte": "Contrôle DMLA"
+    },
+    {
+      "situation": "Porteur de lentilles",
+      "mois": 12,
+      "texte": "Contrôle lentilles de contact"
+    },
+    {
+      "situation": "Enfant",
+      "mois": 12,
+      "texte": "Contrôle de la vue de mon enfant"
+    },
+    {
+      "situation": "Plus de 45 ans, sans maladie de l'œil",
+      "mois": 24,
+      "texte": "Contrôle de la vue"
+    }
   ],
-  "postop_valide": false,
+  "postop_valide": true,
   "postop_consignes": "## Les premiers jours\n- Ne frottez pas votre œil et n'appuyez pas dessus\n- Portez la coque de protection la nuit, aussi longtemps qu'indiqué sur votre ordonnance\n- Lavez-vous les mains avant chaque goutte\n- Douche et cheveux : possible, en évitant l'eau et le savon dans l'œil\n\n## Pendant le premier mois\n- Pas de piscine, de sauna ni de maquillage des yeux\n- Évitez les efforts violents et la poussière (jardinage, bricolage)\n- Portez des lunettes de soleil à l'extérieur\n- Ne reprenez la conduite qu'avec l'accord du médecin\n\n## Mettre ses gouttes\n- Tête en arrière, tirez doucement la paupière du bas et laissez tomber une goutte\n- Attendez 5 minutes entre deux collyres différents\n- Ne touchez pas l'œil avec l'embout du flacon",
   "postop_alerte": [
     "Douleur qui augmente au lieu de diminuer",
