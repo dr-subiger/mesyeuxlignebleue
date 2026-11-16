@@ -96,17 +96,9 @@ collections:
               - { label: "Réponse", name: reponse, widget: markdown, buttons: [bold, link, bulleted-list], editor_components: [image, encadre, youtube] }
 
       - name: suivi
-        label: "Mon suivi et après opération"
+        label: "Après opération"
         file: content/suivi.json
         fields:
-          - label: "Rappels de contrôle"
-            name: rappels
-            widget: list
-            summary: "{{fields.situation}} · {{fields.mois}} mois"
-            fields:
-              - { label: "Situation", name: situation, widget: string }
-              - { label: "Délai proposé (mois)", name: mois, widget: number, value_type: int, min: 1 }
-              - { label: "Texte du rappel", name: texte, widget: string }
           - { label: "Consignes après opération validées par le Dr Subiger", name: postop_valide, widget: boolean, default: false }
           - { label: "Consignes après opération", name: postop_consignes, widget: markdown, buttons: [bold, heading-two, bulleted-list], editor_components: [image, encadre, youtube] }
           - { label: "Signes d'alerte après opération", name: postop_alerte, widget: list }
