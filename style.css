@@ -587,3 +587,36 @@ html,body{overflow-x:hidden}
 .lignes{display:flex;gap:4px;margin-left:auto}
 .ligne{display:inline-grid;place-items:center;min-width:28px;height:24px;padding:0 6px;border-radius:6px;background:#14233b;color:#fff;font-weight:700;font-size:.82rem}
 @media (max-width:900px){.acces-grid{grid-template-columns:1fr}}
+
+/* === V9 · La ligne bleue === */
+/* 1. Ligne de progression de lecture */
+.progress-line{position:fixed;left:0;right:0;top:0;height:3px;z-index:60;pointer-events:none}
+.progress-line span{display:block;height:100%;background:var(--blue);transform:scaleX(0);transform-origin:0 50%;will-change:transform}
+.progress-line::after{content:"";position:absolute;right:2px;top:50%;width:9px;height:9px;margin-top:-4.5px;border-radius:50%;background:var(--blue);opacity:0;transform:scale(.3);transition:opacity .3s,transform .3s}
+.progress-line.done::after{opacity:1;transform:scale(1)}
+/* 2. Accueil : la ligne file jusqu'au bouton Appeler */
+.hero2-text::after{content:"";position:absolute;left:24px;right:28px;bottom:-14px;height:2px;background:linear-gradient(90deg,rgba(35,80,214,.15),var(--blue));transform:scaleX(0);transform-origin:0 50%;animation:ligne-file 1.2s cubic-bezier(.4,0,.2,1) 1.6s forwards}
+.hero2-text::before{content:"";position:absolute;right:20px;bottom:-18px;width:10px;height:10px;border-radius:50%;background:var(--blue);transform:scale(0);animation:ligne-point .35s ease-out 2.75s forwards}
+@keyframes ligne-file{to{transform:scaleX(1)}}
+@keyframes ligne-point{to{transform:scale(1)}}
+.btn-call{animation:appel-pulse 1.4s ease-out 2.9s 1}
+@keyframes appel-pulse{0%{box-shadow:0 0 0 0 rgba(35,80,214,.45),0 6px 18px rgba(35,80,214,.25)}100%{box-shadow:0 0 0 16px rgba(35,80,214,0),0 6px 18px rgba(35,80,214,.25)}}
+/* 4. M'orienter : le chemin parcouru */
+.tree-path{list-style:none;margin:0 0 1.4rem;padding:0;font-size:.92rem;color:var(--ink-2)}
+.tree-path li{position:relative;padding:0 0 .7rem 26px}
+.tree-path li::before{content:"";position:absolute;left:5px;top:12px;bottom:-2px;width:2px;background:var(--blue)}
+.tree-path li::after{content:"";position:absolute;left:0;top:4px;width:8px;height:8px;border-radius:50%;background:#fff;border:2px solid var(--blue)}
+.tree-path li.now{color:var(--blue);font-weight:600;padding-bottom:0}
+.tree-path li.now::before{display:none}
+.tree-path li.now::after{background:var(--blue)}
+.tree-path li.new::before{transform-origin:50% 0;animation:path-grow .45s ease-out}
+@keyframes path-grow{from{transform:scaleY(0)}}
+.tree-path .restart{margin-left:.4rem;font-weight:400;font-size:.85rem}
+/* 5. Petites touches */
+@media (min-width:901px){nav.main a.on{box-shadow:inset 0 -2px 0 var(--blue);padding-bottom:4px}}
+@media (max-width:900px){nav.main a.on{box-shadow:inset 3px 0 0 var(--blue)}}
+section.alt{border-image:linear-gradient(90deg,transparent,rgba(35,80,214,.45) 30%,rgba(35,80,214,.45) 70%,transparent) 1}
+.chart{max-width:520px;margin:1.6rem auto 0;font-family:"Public Sans",sans-serif;color:var(--ink);line-height:1.15;letter-spacing:.12em}
+.chart div{margin:.35rem 0;font-weight:700}
+.chart .last{font-weight:500;letter-spacing:.02em;color:var(--ink-2);border-top:2px solid var(--blue);padding-top:.6rem;margin-top:.8rem}
+@media (prefers-reduced-motion:reduce){.hero2-text::after,.hero2-text::before{animation:none;transform:none}.btn-call{animation:none}.tree-path li.new::before{animation:none}}
