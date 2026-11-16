@@ -60,7 +60,7 @@ function chrome(site, page, opts = {}) {
     const k = document.querySelector("main .kicker");
     if (k) k.insertAdjacentHTML("beforebegin", `<span class="page-ico"><svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[page][1]}</svg></span>`);
   }
-  const links = [["rdv.html", "Rendez-vous", "rdv"], ["equipe.html", "L'équipe", "equipe"], ["conseils.html", "Conseils", "conseils"], ["suivi.html", "Mon suivi", "suivi"], ["orientation.html", "M'orienter", "orientation"], ["faq.html", "FAQ", "faq"], ["acces.html", "Accès", "acces"]];
+  const links = [["rdv.html", "Rendez-vous", "rdv"], ["equipe.html", "L'équipe", "equipe"], ["conseils.html", "Conseils", "conseils"], ["suivi.html", "Test d'Amsler", "suivi"], ["orientation.html", "M'orienter", "orientation"], ["faq.html", "FAQ", "faq"], ["acces.html", "Accès", "acces"]];
   const nav = links.map(([h, t, k]) => `<a href="${h}" class="${k === page ? "on" : ""}">${t}</a>`).join("") + `<a href="urgence.html" class="urg">Urgence</a>`;
   document.body.insertAdjacentHTML("afterbegin",
     (site.bandeau_actif && site.bandeau_texte ? `<div class="bandeau">${esc(site.bandeau_texte)}</div>` : "") +
@@ -70,7 +70,7 @@ function chrome(site, page, opts = {}) {
       <button class="confort-btn" id="confort" aria-pressed="false" title="Agrandir le texte et augmenter le contraste">Aa <span>Confort de lecture</span></button>
       ${opts.noFooter ? "" : `<button class="menu-btn" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>`}
     </div></header>`);
-  const TITLES = { rdv: "Horaires & rendez-vous", equipe: "L'équipe", conseils: "Conseils santé", suivi: "Mon suivi", operation: "Après mon opération", orientation: "M'orienter", faq: "Questions fréquentes", acces: "Venir au cabinet", actualites: "Actualités", urgence: "Urgence", contact: "Être rappelé" };
+  const TITLES = { rdv: "Horaires & rendez-vous", equipe: "L'équipe", conseils: "Conseils santé", suivi: "Test d'Amsler", operation: "Après mon opération", orientation: "M'orienter", faq: "Questions fréquentes", acces: "Venir au cabinet", actualites: "Actualités", urgence: "Urgence", contact: "Être rappelé" };
   if (!opts.noFooter) {
     $("header.site").insertAdjacentHTML("afterend", `<div class="backbar"><div class="wrap"><a href="index.html" id="back"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Retour</a><span class="crumb"><a href="index.html">Accueil</a>${TITLES[page] ? ` › ${TITLES[page]}` : ""}</span></div></div>`);
     $("#back").onclick = e => {
@@ -80,14 +80,14 @@ function chrome(site, page, opts = {}) {
     document.body.insertAdjacentHTML("beforeend", `<nav class="tabbar" aria-label="Raccourcis">
       <a href="index.html" class="${page === "accueil" ? "on" : ""}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>Accueil</a>
       <a href="${telHref(site.telephone)}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>Appeler</a>
-      <a href="suivi.html" class="${page === "suivi" ? "on" : ""}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Mon suivi</a>
+      <a href="suivi.html" class="${page === "suivi" ? "on" : ""}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Amsler</a>
       <a href="urgence.html" class="urg ${page === "urgence" ? "on" : ""}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.5"/></svg>Urgence</a>
     </nav>`);
   }
   if (!opts.noFooter) document.body.insertAdjacentHTML("beforeend",
     `<footer class="site"><div class="wrap"><div class="grid">
       <div><div class="line"></div><h4>${esc(site.nom_cabinet)}</h4><p>${esc(site.adresse)}<br>${esc(site.ville)}<br>Tél. <a href="${telHref(site.telephone)}">${esc(site.telephone)}</a></p></div>
-      <div><h4>Pages</h4><p><a href="rdv.html">Horaires &amp; rendez-vous</a><br><a href="contact.html">Être rappelé</a><br><a href="equipe.html">L'équipe</a><br><a href="conseils.html">Conseils santé</a><br><a href="suivi.html">Mon suivi</a><br><a href="operation.html">Après mon opération</a><br><a href="orientation.html">M'orienter</a><br><a href="faq.html">Questions fréquentes</a><br><a href="acces.html">Accès</a><br><a href="actualites.html">Actualités</a><br><a href="urgence.html">Urgence</a></p></div>
+      <div><h4>Pages</h4><p><a href="rdv.html">Horaires &amp; rendez-vous</a><br><a href="contact.html">Être rappelé</a><br><a href="equipe.html">L'équipe</a><br><a href="conseils.html">Conseils santé</a><br><a href="suivi.html">Test d'Amsler</a><br><a href="operation.html">Après mon opération</a><br><a href="orientation.html">M'orienter</a><br><a href="faq.html">Questions fréquentes</a><br><a href="acces.html">Accès</a><br><a href="actualites.html">Actualités</a><br><a href="urgence.html">Urgence</a></p></div>
       <div><h4>Urgence vitale</h4><p>Appelez le <a href="tel:15">15</a> ou le <a href="tel:112">112</a></p></div>
     </div><div class="small"><span>© ${new Date().getFullYear()} Cabinet du Dr Laurent Subiger</span><a href="mentions.html">Mentions légales</a></div></div></footer>`);
 }
@@ -160,7 +160,7 @@ async function renderTree(site) {
     const n = node(id), r = res(id);
     const crumbs = path.length ? `<div class="crumbs">${path.map(p => esc(p)).join(" › ")} · <a href="#" data-restart>Recommencer</a></div>` : "";
     if (n) {
-      box.innerHTML = crumbs + `<div class="q">${esc(n.question)}</div><div class="opts">${n.options.map((o, i) => `<button data-i="${i}">${esc(o.label)}</button>`).join("")}</div>`;
+      box.innerHTML = crumbs + `<div class="q">${esc(n.question)}</div>${n.encart ? `<aside class="callout"><p>${esc(n.encart)}</p></aside>` : ""}<div class="opts">${n.options.map((o, i) => `<button data-i="${i}">${esc(o.label)}</button>`).join("")}</div>`;
       box.querySelectorAll("[data-i]").forEach(b => b.onclick = () => { const o = n.options[b.dataset.i]; path.push(o.label); show(o.suite); });
     } else if (r) {
       const actions = r.niveau === "vital" ? `<a class="btn btn-red" href="tel:15">Appeler le 15</a>`
