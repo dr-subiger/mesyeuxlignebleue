@@ -62,6 +62,10 @@ function chrome(site, page, opts = {}) {
   }
   const links = [["rdv.html", "Rendez-vous", "rdv"], ["equipe.html", "L'équipe", "equipe"], ["conseils.html", "Conseils", "conseils"], ["suivi.html", "Test d'Amsler", "suivi"], ["orientation.html", "M'orienter", "orientation"], ["faq.html", "FAQ", "faq"], ["acces.html", "Accès", "acces"]];
   const nav = links.map(([h, t, k]) => `<a href="${h}" class="${k === page ? "on" : ""}">${t}</a>`).join("") + `<a href="urgence.html" class="urg">Urgence</a>`;
+  document.body.insertAdjacentHTML("afterbegin", `<div class="progress-line" aria-hidden="true"><span></span></div>`);
+  const pl = document.querySelector(".progress-line");
+  const prog = () => { const h = document.documentElement.scrollHeight - innerHeight; const r = h > 40 ? Math.min(1, scrollY / h) : 0; pl.firstChild.style.transform = `scaleX(${r})`; pl.classList.toggle("done", r > .99); };
+  addEventListener("scroll", prog, { passive: true }); addEventListener("resize", prog); setTimeout(prog, 300);
   document.body.insertAdjacentHTML("afterbegin",
     (site.bandeau_actif && site.bandeau_texte ? `<div class="bandeau">${esc(site.bandeau_texte)}</div>` : "") +
     `<header class="site"><div class="wrap">
@@ -158,7 +162,7 @@ async function renderTree(site) {
   let path = [];
   const show = id => {
     const n = node(id), r = res(id);
-    const crumbs = path.length ? `<div class="crumbs">${path.map(p => esc(p)).join(" › ")} · <a href="#" data-restart>Recommencer</a></div>` : "";
+    const crumbs = path.length ? `<ol class="tree-path" aria-label="Vos réponses">${path.map((p, i) => `<li class="${i === path.length - 1 ? "new" : ""}">${esc(p)}</li>`).join("")}<li class="now">${n ? "Question suivante" : "Résultat"}<a href="#" class="restart" data-restart>Recommencer</a></li></ol>` : "";
     if (n) {
       box.innerHTML = crumbs + `<div class="q">${esc(n.question)}</div>${n.encart ? `<aside class="callout"><p>${esc(n.encart)}</p></aside>` : ""}<div class="opts">${n.options.map((o, i) => `<button data-i="${i}">${esc(o.label)}</button>`).join("")}</div>`;
       box.querySelectorAll("[data-i]").forEach(b => b.onclick = () => { const o = n.options[b.dataset.i]; path.push(o.label); show(o.suite); });
