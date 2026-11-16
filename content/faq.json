@@ -10,11 +10,11 @@
     },
     {
       "question": "Ma vue a baissé d'un coup, puis-je attendre un rendez-vous ?",
-      "reponse": "Non. Une baisse brutale de la vue est une urgence. Consultez la page [Urgence](urgence.html) ou appelez le 15."
+      "reponse": "Non. Une baisse brutale de la vue est une urgence. Appelez le cabinet et expliquez vos symptômes. Si le cabinet ne répond pas, consultez la page [Urgence](urgence.html)."
     },
     {
       "question": "Puis-je renouveler mes lunettes sans consulter ?",
-      "reponse": "Oui, dans certains cas : l'opticien peut renouveler ou adapter votre correction si votre ordonnance est encore valable (5 ans de 16 à 42 ans, 3 ans après 42 ans, 1 an avant 16 ans). Une consultation reste nécessaire pour un examen complet de l'œil."
+      "reponse": "Une consultation médicale au cabinet est toujours préférable. La loi prévoit que l'opticien peut renouveler ou adapter votre correction si votre ordonnance est encore valable."
     },
     {
       "question": "Combien de temps dure une consultation ?",
@@ -30,11 +30,11 @@
     },
     {
       "question": "À partir de quel âge faire contrôler la vue d'un enfant ?",
-      "reponse": "Un premier bilan est conseillé vers 3 ans, et plus tôt si l'enfant présente un strabisme, plisse les yeux ou s'il y a des antécédents dans la famille. Voir la fiche [La vue des enfants](conseils.html#enfants)."
+      "reponse": "Voir la fiche [La vue des enfants](conseils.html#enfants)."
     },
     {
       "question": "Quels sont les tarifs ?",
-      "reponse": "Le Dr Subiger est médecin **non conventionné (secteur 3)**. Jusqu'au 31 décembre 2026, la consultation est de **90 €**.\n\nPour un médecin non conventionné, le remboursement de l'Assurance maladie est très faible. Renseignez-vous auprès de votre mutuelle, certaines prennent en charge une partie des honoraires."
+      "reponse": "La consultation est actuellement de **90 €**. Le Dr Subiger est médecin **non conventionné (secteur 3)**. Pour un médecin non conventionné, le remboursement de l'Assurance maladie est très faible. Renseignez-vous auprès du secrétariat."
     }
   ]
 }
