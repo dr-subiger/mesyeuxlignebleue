@@ -344,3 +344,10 @@ function contactForm(site) {
     }
   });
 }
+
+// --- Mesure d'audience Umami (sans cookies), hors espace admin
+if (!location.pathname.startsWith("/admin")) {
+  const s = document.createElement("script");
+  s.defer = true; s.src = "https://cloud.umami.is/script.js"; s.dataset.websiteId = "6872127d-a3e3-4932-9d57-fde85ff0bc00";
+  document.head.appendChild(s);
+}
