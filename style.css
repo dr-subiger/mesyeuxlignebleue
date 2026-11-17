@@ -645,3 +645,11 @@ header.site::before{content:"";position:absolute;left:0;right:0;bottom:-6px;heig
 .scene .ridge-line,.scene .glint{vector-effect:none}
 .scene .ridge-line{stroke-width:4}
 .scene .glint{stroke-width:5}
+/* V12 · ligne fine qui glisse le long de la crête */
+.scene .ridge-line{stroke-width:2}
+.ridge.drawn .ridge-line{animation:ridge-dim 1.2s ease 2.6s forwards}
+@keyframes ridge-dim{to{opacity:.3}}
+.scene .glint{stroke:var(--blue);stroke-width:2.4;stroke-linecap:round;stroke-dasharray:.28 .72;stroke-dashoffset:0;filter:none;opacity:0}
+.ridge.drawn .glint{opacity:1;animation:ridge-flow 16s linear 2.6s infinite,fade 1.2s ease 2.6s both}
+@keyframes ridge-flow{to{stroke-dashoffset:-1}}
+@media (prefers-reduced-motion:reduce){.ridge.drawn .ridge-line{animation:none;opacity:1}.ridge.drawn .glint{display:none}}
