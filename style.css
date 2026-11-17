@@ -641,3 +641,7 @@ header.site::before{content:"";position:absolute;left:0;right:0;bottom:-6px;heig
   .hub-infos a{padding:.5rem .75rem}
 }
 @media (prefers-reduced-motion:reduce){.ridge.drawn .glint,header.site::before{animation:none;opacity:0}}
+/* la ligne bleue va jusqu'au bout (pathLength incompatible avec non-scaling-stroke) */
+.scene .ridge-line,.scene .glint{vector-effect:none}
+.scene .ridge-line{stroke-width:4}
+.scene .glint{stroke-width:5}
