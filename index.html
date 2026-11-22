@@ -13,7 +13,7 @@
 <meta property="og:description" content="Horaires, rendez-vous, urgences et conseils pour vos yeux.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=12">
+<link rel="stylesheet" href="style.css?v=13">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Physician","name":"Dr Laurent Subiger","medicalSpecialty":"Ophthalmology","telephone":"+33384275999","address":{"@type":"PostalAddress","streetAddress":"2 rue du Peintre Baumann","postalCode":"90000","addressLocality":"Belfort","addressCountry":"FR"},"url":"https://mesyeuxlignebleue.fr","openingHours":["Tu-Fr 08:00-12:00","Tu-Fr 14:00-18:00","Sa 08:00-12:00"]}</script>
 </head>
 <body class="hub">
@@ -103,6 +103,7 @@
   </section>
 </main>
 <script src="app.js"></script>
+<script src="star.js?v=13"></script>
 <script>
 function todayHours(site) {
   const el = document.getElementById("today-h"); if (!el || !site.horaires) return;
@@ -114,6 +115,6 @@ function todayHours(site) {
     if (f) { el.textContent = "Fermé aujourd'hui · " + (i === 1 ? "demain" : n.jour.toLowerCase()) + " dès " + f.split(/\s*[–-]/)[0].replace("h00", "h"); return; } }
 }
 </script>
-<script>init("accueil", { noFooter: true }).then(site => { todayHours(site); requestAnimationFrame(() => document.getElementById("ridge").classList.add("drawn")); lastNews(); });</script>
+<script>init("accueil", { noFooter: true }).then(site => { todayHours(site); requestAnimationFrame(() => document.getElementById("ridge").classList.add("drawn")); setTimeout(() => { try { starIntro(); } catch (e) { document.querySelectorAll(".sk-sun").forEach(s => s.classList.add("sun-on")); } }, 2500); lastNews(); });</script>
 </body>
 </html>
